@@ -10,6 +10,7 @@ import styles from "./productDetails.style";
 import { COLORS, SIZES } from "../constants/index";
 
 const ProductDetails = ({ navigation }) => {
+  const [rating, setRating] = useState(0);
   const [count, setCount] = useState(1);
 
   const increment = () => {
@@ -19,6 +20,10 @@ const ProductDetails = ({ navigation }) => {
     if (count > 1) {
       setCount(count - 1);
     }
+  };
+
+  const setProductRating = (index) => {
+    setRating(index);
   };
 
   return (
@@ -49,14 +54,18 @@ const ProductDetails = ({ navigation }) => {
         <View style={styles.ratingRow}>
           <View style={styles.rating}>
             {[1, 2, 3, 4, 5].map((index) => (
-              <Ionicons
+              <TouchableOpacity
                 key={index}
-                name={index <= count ? "star" : "star-outline"}
-                size={24}
-                color="gold"
-              />
+                onPress={() => setProductRating(index)}
+              >
+                <Ionicons
+                  name={index <= rating ? "star" : "star-outline"}
+                  size={24}
+                  color="gold"
+                />
+              </TouchableOpacity>
             ))}
-            <Text>({count}.0)</Text>
+            <Text>({rating}.0)</Text>
           </View>
 
           <View style={styles.rating}>
