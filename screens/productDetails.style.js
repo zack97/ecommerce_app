@@ -28,6 +28,38 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: SIZES.medium,
     borderTopRightRadius: SIZES.medium,
   },
+
+  cartRow: {
+    paddingBottom: SIZES.small,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: SIZES.width,
+  },
+  cartBtn: {
+    width: SIZES.width * 0.7,
+    backgroundColor: COLORS.black,
+    padding: SIZES.small / 2,
+    borderRadius: SIZES.large,
+    marginLeft: 12,
+  },
+
+  cartTitle: {
+    marginLeft: SIZES.small,
+    fontFamily: "semibold",
+    fontSize: SIZES.medium,
+    color: COLORS.lightWhite,
+  },
+  addCart: {
+    width: 37,
+    height: 37,
+    borderRadius: 50,
+    margin: SIZES.small,
+    backgroundColor: COLORS.black,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
   titleRow: {
     marginHorizontal: 20,
     paddingBottom: SIZES.small,
@@ -54,6 +86,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginHorizontal: SIZES.large,
   },
+
+  ratingText: {
+    color: COLORS.gray,
+    fontFamily: "medium",
+    paddingHorizontal: SIZES.xSmall,
+  },
   title: {
     fontFamily: "semibold",
     fontSize: SIZES.large,
@@ -67,6 +105,31 @@ const styles = StyleSheet.create({
   priceWrapper: {
     backgroundColor: COLORS.secondary,
     borderRadius: SIZES.large,
+  },
+
+  descritpionWrapper: {
+    marginTop: SIZES.large * 2,
+    marginHorizontal: SIZES.large,
+  },
+
+  description: {
+    fontFamily: "medium",
+    fontSize: SIZES.large - 2,
+  },
+  descriptionText: {
+    fontFamily: "regular",
+    fontSize: SIZES.small,
+    textAlign: "justify",
+    marginBottom: SIZES.small,
+  },
+  location: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: COLORS.secondary,
+    padding: 5,
+    borderRadius: SIZES.large,
+    marginHorizontal: 12,
   },
 });
 

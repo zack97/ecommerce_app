@@ -1,8 +1,13 @@
 import { Text, TouchableOpacity, View, Image } from "react-native";
 import React, { useState } from "react";
-import { Ionicons, SimpleLineIcons } from "@expo/vector-icons";
+import {
+  Fontisto,
+  Ionicons,
+  MaterialCommunityIcons,
+  SimpleLineIcons,
+} from "@expo/vector-icons";
 import styles from "./productDetails.style";
-import { COLORS } from "../constants/index";
+import { COLORS, SIZES } from "../constants/index";
 
 const ProductDetails = ({ navigation }) => {
   const [count, setCount] = useState(1);
@@ -53,11 +58,46 @@ const ProductDetails = ({ navigation }) => {
             <TouchableOpacity onPress={() => increment()}>
               <SimpleLineIcons name="plus" size={20} />
             </TouchableOpacity>
-            <Text style={{ marginHorizontal: 10 }}> {count}</Text>
+            <Text style={styles.ratingText}>{count}</Text>
             <TouchableOpacity onPress={() => decrement()}>
               <SimpleLineIcons name="minus" size={20} />
             </TouchableOpacity>
           </View>
+        </View>
+
+        <View style={styles.descritpionWrapper}>
+          <Text style={styles.description}>Description</Text>
+          <Text style={styles.descriptionText}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod fugit
+            sunt vero veritatis earum ipsum! Ipsam magni cum debitis, expedita
+            inventore et ullam voluptas accusamus illum? Optio repudiandae
+            suscipit nostrum! Lorem ipsum dolor sit, amet consectetur
+            adipisicing elit. Consectetur inventore expedita sunt dolore omnis
+            commodi tenetur ex excepturi quis perferendis molestiae illo
+            deserunt, quasi culpa ea eum magni. Culpa, quaerat!
+          </Text>
+        </View>
+        <View style={{ marginBottom: SIZES.small }}>
+          <View style={styles.location}>
+            <View style={{ flexDirection: "row" }}>
+              <Ionicons name="location-outline" size={20} />
+              <Text> Brussels </Text>
+            </View>
+            <View style={{ flexDirection: "row" }}>
+              <MaterialCommunityIcons name="truck-delivery-outline" size={20} />
+              <Text> Free Delivery </Text>
+            </View>
+          </View>
+        </View>
+
+        <View style={styles.cartRow}>
+          <TouchableOpacity onPress={() => {}} style={styles.cartBtn}>
+            <Text style={styles.cartTitle}>BUY NOW</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => {}} style={styles.addCart}>
+            <Fontisto name="shopping-bag" size={24} color={COLORS.lightWhite} />
+          </TouchableOpacity>
         </View>
       </View>
     </View>
