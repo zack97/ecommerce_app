@@ -49,9 +49,14 @@ const ProductDetails = ({ navigation }) => {
         <View style={styles.ratingRow}>
           <View style={styles.rating}>
             {[1, 2, 3, 4, 5].map((index) => (
-              <Ionicons key={index} name="star" size={24} color="gold" />
+              <Ionicons
+                key={index}
+                name={index <= count ? "star" : "star-outline"}
+                size={24}
+                color="gold"
+              />
             ))}
-            <Text>(4.9)</Text>
+            <Text>({count}.0)</Text>
           </View>
 
           <View style={styles.rating}>
