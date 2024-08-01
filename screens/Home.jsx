@@ -11,7 +11,7 @@ import ProductRow from "../components/products/ProductRow";
 
 const Home = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={style.container}>
       <View style={style.appBarWrapper}>
         <View style={style.appBar}>
           <Ionicons name="location-outline" size={24} />

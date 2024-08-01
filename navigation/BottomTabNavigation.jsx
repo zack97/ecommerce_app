@@ -23,7 +23,7 @@ const screenOptions = {
 
 const BottomTabNavigation = () => {
   return (
-    <Tab.Navigator screenOptions={screenOptions}>
+    <Tab.Navigator screenOptions={screenOptions} style={""}>
       <Tab.Screen
         name="Home"
         component={Home}
