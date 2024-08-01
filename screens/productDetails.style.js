@@ -1,139 +1,159 @@
 import { Dimensions, StyleSheet } from "react-native";
 import { COLORS, SIZES } from "../constants/index";
 
-const { height: screenHeight } = Dimensions.get("window");
+const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    minHeight: screenHeight,
     backgroundColor: COLORS.lightWhite,
   },
   upperRow: {
-    marginHorizontal: 20,
+    marginHorizontal: screenWidth * 0.05,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     position: "absolute",
-    top: SIZES.xxLarge,
-    width: SIZES.width - 44,
+    top: screenHeight * 0.05,
+    width: screenWidth * 0.9,
     zIndex: 999,
   },
-
   image: {
     aspectRatio: 1,
     resizeMode: "cover",
-    height: 350,
+    width: "100%",
+    height: screenHeight * 0.4,
+    borderBottomLeftRadius: SIZES.medium,
+    borderBottomRightRadius: SIZES.medium,
   },
   details: {
-    marginTop: -SIZES.large,
+    marginTop: -screenHeight * 0.03,
     backgroundColor: COLORS.lightWhite,
-    width: SIZES.width,
+    width: "100%",
     borderTopLeftRadius: SIZES.medium,
     borderTopRightRadius: SIZES.medium,
+    paddingHorizontal: screenWidth * 0.05,
+    paddingVertical: SIZES.medium,
   },
-
-  cartRow: {
-    paddingBottom: SIZES.small,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    width: SIZES.width,
-  },
-  cartBtn: {
-    width: SIZES.width * 0.7,
-    backgroundColor: COLORS.black,
-    padding: SIZES.small / 2,
-    borderRadius: SIZES.large,
-    marginLeft: 12,
-  },
-
-  cartTitle: {
-    marginLeft: SIZES.small,
-    fontFamily: "semibold",
-    fontSize: SIZES.medium,
-    color: COLORS.lightWhite,
-  },
-  addCart: {
-    width: 37,
-    height: 37,
-    borderRadius: 50,
-    margin: SIZES.small,
-    backgroundColor: COLORS.black,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
   titleRow: {
-    marginHorizontal: 20,
-    paddingBottom: SIZES.small,
+    paddingVertical: SIZES.small,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    width: SIZES.width - 44,
-    top: 20,
-  },
-
-  ratingRow: {
-    paddingBottom: SIZES.small,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    width: SIZES.width - 10,
-    top: 5,
-  },
-
-  rating: {
-    top: SIZES.large,
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    marginHorizontal: SIZES.large,
-  },
-
-  ratingText: {
-    color: COLORS.gray,
-    fontFamily: "medium",
-    paddingHorizontal: SIZES.xSmall,
+    width: "100%",
   },
   title: {
     fontFamily: "semibold",
     fontSize: SIZES.large,
-  },
-
-  price: {
-    paddingHorizontal: 10,
-    fontFamily: "semibold",
-    fontSize: SIZES.large,
+    color: COLORS.darkGray,
   },
   priceWrapper: {
     backgroundColor: COLORS.secondary,
-    borderRadius: SIZES.large,
+    borderRadius: SIZES.medium,
+    paddingHorizontal: SIZES.medium,
   },
-
-  descritpionWrapper: {
-    marginTop: SIZES.large * 2,
-    marginHorizontal: SIZES.large,
+  price: {
+    fontFamily: "bold",
+    fontSize: SIZES.large,
+    color: COLORS.black,
   },
-
+  ratingRow: {
+    paddingVertical: SIZES.medium,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+  },
+  rating: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  ratingText: {
+    fontFamily: "medium",
+    fontSize: SIZES.medium,
+    color: COLORS.gray,
+    marginLeft: SIZES.small,
+  },
+  counter: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  counterText: {
+    fontFamily: "medium",
+    fontSize: SIZES.medium,
+    color: COLORS.darkGray,
+    marginHorizontal: SIZES.small,
+  },
+  descriptionWrapper: {
+    marginTop: SIZES.medium,
+  },
   description: {
     fontFamily: "medium",
-    fontSize: SIZES.large - 2,
+    fontSize: SIZES.medium,
+    color: COLORS.darkGray,
+    marginBottom: SIZES.small,
   },
   descriptionText: {
     fontFamily: "regular",
     fontSize: SIZES.small,
+    color: COLORS.gray,
     textAlign: "justify",
-    marginBottom: SIZES.small,
+    lineHeight: SIZES.medium,
   },
-  location: {
+  locationWrapper: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: COLORS.secondary,
-    padding: 5,
+    marginVertical: SIZES.small,
+    padding: SIZES.small,
+    backgroundColor: COLORS.lightGray,
+    borderRadius: SIZES.medium,
+  },
+  locationItem: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  locationText: {
+    fontFamily: "regular",
+    fontSize: SIZES.small,
+    color: COLORS.darkGray,
+    marginLeft: SIZES.small,
+  },
+  cartRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  cartBtn: {
+    flex: 1,
+    backgroundColor: COLORS.primary,
+    padding: SIZES.small,
     borderRadius: SIZES.large,
-    marginHorizontal: 12,
+    alignItems: "center",
+    marginRight: SIZES.small,
+    shadowColor: COLORS.black,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: SIZES.medium,
+    elevation: 5,
+  },
+  cartTitle: {
+    fontFamily: "bold",
+    fontSize: SIZES.medium,
+    color: COLORS.lightWhite,
+  },
+  addCart: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: COLORS.black,
+    alignItems: "center",
+    justifyContent: "center",
+    shadowColor: COLORS.black,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: SIZES.medium,
+    elevation: 5,
   },
 });
 
