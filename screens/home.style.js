@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
     // minHeight: screenHeight,
     // backgroundColor: "green",
     marginBottom: "80px",
-    overflow: "hidden",
   },
 
   textStyle: {

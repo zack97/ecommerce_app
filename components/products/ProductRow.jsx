@@ -12,7 +12,7 @@ const ProductRow = () => {
         data={products}
         renderItem={({ item }) => <ProductCardView />}
         horizontal
-        contentContainerStyle={{ columnGap: SIZES.medium }}
+        contentContainerStyle={{ columnGap: 5 }}
       />
     </View>
   );

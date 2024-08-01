@@ -1,9 +1,12 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import { COLORS, SIZES } from "../constants/index";
+
+const { height: screenHeight } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    minHeight: screenHeight,
     backgroundColor: COLORS.lightWhite,
   },
   upperRow: {
@@ -20,6 +23,7 @@ const styles = StyleSheet.create({
   image: {
     aspectRatio: 1,
     resizeMode: "cover",
+    height: 250,
   },
   details: {
     marginTop: -SIZES.large,

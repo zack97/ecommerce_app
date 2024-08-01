@@ -71,10 +71,6 @@ const ProductDetails = ({ navigation }) => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod fugit
             sunt vero veritatis earum ipsum! Ipsam magni cum debitis, expedita
             inventore et ullam voluptas accusamus illum? Optio repudiandae
-            suscipit nostrum! Lorem ipsum dolor sit, amet consectetur
-            adipisicing elit. Consectetur inventore expedita sunt dolore omnis
-            commodi tenetur ex excepturi quis perferendis molestiae illo
-            deserunt, quasi culpa ea eum magni. Culpa, quaerat!
           </Text>
         </View>
         <View style={{ marginBottom: SIZES.small }}>
