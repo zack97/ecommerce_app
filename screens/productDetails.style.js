@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   image: {
     aspectRatio: 1,
     resizeMode: "cover",
-    height: 250,
+    height: 300,
   },
   details: {
     marginTop: -SIZES.large,
