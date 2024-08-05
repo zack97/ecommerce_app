@@ -1,4 +1,4 @@
-import { Text, TouchableOpacity, View, Image } from "react-native";
+import { Text, TouchableOpacity, View, Image, Dimensions } from "react-native";
 import React, { useState } from "react";
 import {
   Fontisto,
@@ -6,10 +6,14 @@ import {
   MaterialCommunityIcons,
   SimpleLineIcons,
 } from "@expo/vector-icons";
+import { useRoute } from "@react-navigation/native";
 import styles from "./productDetails.style";
 import { COLORS, SIZES } from "../constants/index";
 
 const ProductDetails = ({ navigation }) => {
+  const route = useRoute();
+  const { item } = route.params;
+
   const [rating, setRating] = useState(0);
   const [count, setCount] = useState(1);
 
@@ -43,15 +47,17 @@ const ProductDetails = ({ navigation }) => {
       </View>
       <Image
         source={{
-          uri: " https://images.pexels.com/photos/276583/pexels-photo-276583.jpeg?cs=srgb&dl=pexels-pixabay-276583.jpg&fm=jpg ",
+          uri: item.imageUrl,
         }}
         style={styles.image}
       />
       <View style={styles.details}>
         <View style={styles.titleRow}>
-          <Text style={styles.title}>Product Name</Text>
+          <Text style={styles.title}>{item.title}</Text>
           <View style={styles.priceWrapper}>
-            <Text style={styles.price}>€150</Text>
+            <Text style={styles.price}>
+              {item.price.includes("€") ? item.price : `€${item.price}`}
+            </Text>
           </View>
         </View>
 
@@ -85,11 +91,7 @@ const ProductDetails = ({ navigation }) => {
 
         <View style={styles.descriptionWrapper}>
           <Text style={styles.description}>Description</Text>
-          <Text style={styles.descriptionText}>
-            This is a beautiful and high-quality product that will meet all your
-            expectations. The material is durable, and the design is elegant,
-            making it a perfect addition to your collection.
-          </Text>
+          <Text style={styles.descriptionText}>{item.description}</Text>
         </View>
         <View style={styles.locationWrapper}>
           <View style={styles.locationItem}>
@@ -98,7 +100,7 @@ const ProductDetails = ({ navigation }) => {
               size={20}
               color={COLORS.darkGray}
             />
-            <Text style={styles.locationText}> Brussels </Text>
+            <Text style={styles.locationText}> {item.product_location} </Text>
           </View>
           <View style={styles.locationItem}>
             <MaterialCommunityIcons

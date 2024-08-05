@@ -1,13 +1,9 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { COLORS, SIZES } from "../constants/index";
-
-// const { height: screenHeight } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // minHeight: screenHeight,
-    // backgroundColor: "green",
     marginBottom: "80px",
   },
 
