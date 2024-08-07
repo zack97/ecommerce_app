@@ -46,7 +46,6 @@ const styles = StyleSheet.create({
 
     width: SIZES.width - 100,
     height: SIZES.height - 300,
-    marginLeft: 70,
     opacity: 0.9,
   },
 });
