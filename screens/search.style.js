@@ -44,8 +44,8 @@ const styles = StyleSheet.create({
   searchImage: {
     resizeMode: "contain",
 
-    width: SIZES.width + 100,
-    height: SIZES.height,
+    width: SIZES.width - 100,
+    height: SIZES.height - 300,
     marginLeft: 70,
     opacity: 0.9,
   },
