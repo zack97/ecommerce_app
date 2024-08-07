@@ -40,6 +40,15 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primary,
     padding: 10,
   },
+
+  searchImage: {
+    resizeMode: "contain",
+
+    width: SIZES.width + 100,
+    height: SIZES.height,
+    marginLeft: 70,
+    opacity: 0.9,
+  },
 });
 
 export default styles;
