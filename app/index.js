@@ -21,19 +21,17 @@ const AppNavigation = () => {
 
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        name="BottomNavigation"
+        component={BottomTabNavigation}
+        options={{ headerShown: false }}
+      />
       {isAuthenticated ? (
-        <>
-          <Stack.Screen
-            name="BottomNavigation"
-            component={BottomTabNavigation}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Profile"
-            component={Profile}
-            options={{ headerShown: false }}
-          />
-        </>
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
+          options={{ headerShown: false }}
+        />
       ) : (
         <>
           <Stack.Screen

@@ -1,19 +1,29 @@
-import React from "react";
-import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
+import React, { useContext } from "react";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  Alert,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import { COLORS, SIZES } from "../constants/index";
+import { AuthContext } from "../context/AuthContext";
 
 const Profile = () => {
+  const { signOut } = useContext(AuthContext);
   const navigation = useNavigation();
 
-  const handleEditProfile = () => {
-    navigation.navigate("EditProfile"); // Navigate to the EditProfile screen
-  };
-
-  const handleLogout = () => {
-    // Handle logout logic here
-    console.log("User logged out");
+  const handleLogout = async () => {
+    try {
+      await signOut();
+      navigation.navigate("SignIn"); // Navigate to SignIn or another screen
+      Alert.alert("Logged out", "You have been logged out successfully.");
+    } catch (error) {
+      Alert.alert("Error", "Failed to log out.");
+    }
   };
 
   return (
@@ -31,7 +41,7 @@ const Profile = () => {
         <Text style={styles.infoLabel}>Phone:</Text>
         <Text style={styles.infoValue}>+1234567890</Text>
       </View>
-      <TouchableOpacity style={styles.editButton} onPress={handleEditProfile}>
+      <TouchableOpacity style={styles.editButton} onPress={() => {}}>
         <Ionicons name="pencil" size={20} color={COLORS.white} />
         <Text style={styles.editButtonText}>Edit Profile</Text>
       </TouchableOpacity>
