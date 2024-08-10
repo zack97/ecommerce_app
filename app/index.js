@@ -1,12 +1,71 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
 import BottomTabNavigation from "../navigation/BottomTabNavigation";
-import { Cart, NewRivals, ProductDetails } from "../screens";
+import {
+  Cart,
+  NewRivals,
+  ProductDetails,
+  SignUp,
+  SignIn,
+  Profile,
+} from "../screens";
+import { AuthProvider, AuthContext } from "../context/AuthContext";
 
 const Stack = createNativeStackNavigator();
+
+const AppNavigation = () => {
+  const { isAuthenticated } = React.useContext(AuthContext);
+
+  return (
+    <Stack.Navigator>
+      {isAuthenticated ? (
+        <>
+          <Stack.Screen
+            name="BottomNavigation"
+            component={BottomTabNavigation}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Profile"
+            component={Profile}
+            options={{ headerShown: false }}
+          />
+        </>
+      ) : (
+        <>
+          <Stack.Screen
+            name="SignUp"
+            component={SignUp}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="SignIn"
+            component={SignIn}
+            options={{ headerShown: false }}
+          />
+        </>
+      )}
+      <Stack.Screen
+        name="Cart"
+        component={Cart}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="ProductDetails"
+        component={ProductDetails}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="ProductList"
+        component={NewRivals}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  );
+};
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -29,29 +88,8 @@ export default function App() {
   }
 
   return (
-    <>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Bottom Navigation"
-          component={BottomTabNavigation}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Cart"
-          component={Cart}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="ProductDetails"
-          component={ProductDetails}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="ProductList"
-          component={NewRivals}
-          options={{ headerShown: false }}
-        />
-      </Stack.Navigator>
-    </>
+    <AuthProvider>
+      <AppNavigation />
+    </AuthProvider>
   );
 }
