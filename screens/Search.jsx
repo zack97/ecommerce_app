@@ -17,7 +17,7 @@ const Search = () => {
       const response =
         await axios.get(`https://ecom-app-backend.vercel.app/api/products/search/${searchKey}
 `);
-      setSearchResult(response.data);
+      setSearchResult(response.data.products);
     } catch (err) {
       console.log("Failed to get products", err);
     }
