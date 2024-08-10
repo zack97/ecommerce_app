@@ -14,7 +14,7 @@ const useFetch = () => {
       const response = await axios.get(
         "https://ecom-app-backend-95nz.onrender.com/api/products"
       );
-      setData(response.data);
+      setData(response.data.products);
     } catch (error) {
       setError(error);
     } finally {
