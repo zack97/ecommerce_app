@@ -12,11 +12,10 @@ const Search = () => {
   const [searchKey, setsearchKey] = useState("");
   const [searchResults, setSearchResult] = useState([]);
 
-  //https://ecom-app-backend-95nz.onrender.com/api/products/search/${searchkey}
   const handlePress = async () => {
     try {
       const response =
-        await axios.get(`https://ecom-app-backend-95nz.onrender.com/api/products/search/${searchKey}
+        await axios.get(`https://ecom-app-backend.vercel.app/api/products/search/${searchKey}
 `);
       setSearchResult(response.data);
     } catch (err) {
