@@ -12,7 +12,7 @@ const useFetch = () => {
 
     try {
       const response = await axios.get(
-        "https://ecom-app-backend-95nz.onrender.com/api/products"
+        "https://ecom-app-backend.vercel.app/api/products"
       );
       setData(response.data.products);
     } catch (error) {
