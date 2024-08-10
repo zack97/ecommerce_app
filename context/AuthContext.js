@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
     try {
       // Replace with your backend URL
       const response = await axios.post(
-        "https://ecom-app-backend-95nz.onrender.com/api/auth/signup",
+        "ecom-app-backend.vercel.app/api/auth/signup",
         { email, password }
       );
       const { token } = response.data.auth;

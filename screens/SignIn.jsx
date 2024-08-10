@@ -19,7 +19,7 @@ const SignIn = ({ navigation }) => {
   const handleSignIn = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/auth/signin",
+        "ecom-app-backend.vercel.app/api/auth/signin",
         { email, password }
       );
       const { token } = response.data;
