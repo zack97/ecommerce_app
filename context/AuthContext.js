@@ -1,4 +1,3 @@
-// context/AuthContext.js
 import React, { createContext, useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
@@ -10,35 +9,54 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const checkAuth = async () => {
-      const token = await AsyncStorage.getItem("token");
-      setIsAuthenticated(!!token);
+      try {
+        const token = await AsyncStorage.getItem("token");
+        console.log("Token from AsyncStorage:", token);
+        setIsAuthenticated(!!token);
+      } catch (error) {
+        console.error("Error checking authentication:", error);
+      }
     };
 
     checkAuth();
   }, []);
 
   const signIn = async (token) => {
-    await AsyncStorage.setItem("token", token);
-    setIsAuthenticated(true);
+    try {
+      await AsyncStorage.setItem("token", token);
+      console.log("Token saved:", token);
+      setIsAuthenticated(true);
+    } catch (error) {
+      console.error("Error saving token:", error);
+    }
   };
 
   const signOut = async () => {
-    await AsyncStorage.removeItem("token");
-    setIsAuthenticated(false);
+    try {
+      await AsyncStorage.removeItem("token");
+      console.log("Token removed");
+      setIsAuthenticated(false);
+    } catch (error) {
+      console.error("Error removing token:", error);
+    }
   };
 
   const signUp = async (email, password) => {
     try {
-      // Replace with your backend URL
+      console.log("Signing up with email:", email);
       const response = await axios.post(
-        "ecom-app-backend.vercel.app/api/auth/signup",
+        "https://ecom-app-backend.vercel.app/api/auth/signup",
         { email, password }
       );
-      const { token } = response.data.auth;
+      const { token } = response.data;
+      console.log("Signup response data:", response.data);
       await AsyncStorage.setItem("token", token);
       setIsAuthenticated(true);
     } catch (error) {
-      console.error("Signup error:", error);
+      console.error(
+        "Signup error:",
+        error.response ? error.response.data : error.message
+      );
       throw new Error("Signup failed. Please try again.");
     }
   };

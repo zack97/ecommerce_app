@@ -24,6 +24,7 @@ const SignUp = ({ navigation }) => {
       );
       const { token } = response.data;
       await signIn(token);
+      console.log("mon token:", token);
       navigation.navigate("Profile");
     } catch (error) {
       Alert.alert("Error", error.response.data.error);

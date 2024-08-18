@@ -23,6 +23,8 @@ const SignIn = ({ navigation }) => {
         { email, password }
       );
       const { token } = response.data;
+      console.log("mon response:", response.data);
+
       await signIn(token);
       navigation.navigate("Profile");
     } catch (error) {
